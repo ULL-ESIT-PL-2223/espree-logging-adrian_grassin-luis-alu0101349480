@@ -34,8 +34,13 @@ foo(1, 'wut', 3);
 
 ## CLI con [Commander.js](https://www.npmjs.com/package/commander)
 
-...
+Se han añadido opciones -h y -V, que vienen reconocidas automáticamente con Commander, y una opción que permite especificar el fichero de salida.<br><br>
 
+Por ejemplo con -h:
+![help](/docs/imgs/help.png) 
+
+
+Con -V simplemente nos saldría el número de versión especificado en el package.json
 ## Reto 1: Soportar funciones flecha
 
 ...
