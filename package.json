@@ -1,5 +1,5 @@
 {
-    "name": "@alu0101349480/espree-logging-solution",
+    "name": "@adriangrassin/espree-logging-solution",
     "author": "Adrian Grassin Luis <alu0101349480@ull.edu.es>",
     "description": "Adds logs to javascript code",
     "type": "module",
@@ -28,5 +28,8 @@
     "version": "0.5.0",
     "devDependencies": {
         "mocha": "^10.2.0"
+    },
+    "publishConfig": {
+        "access": "public"
     }
 }
