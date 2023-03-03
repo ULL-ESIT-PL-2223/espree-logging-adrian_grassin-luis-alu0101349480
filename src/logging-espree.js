@@ -4,7 +4,13 @@ import * as estraverse from "estraverse";
 import * as fs from "fs/promises";
 
 export async function transpile(inputFile, outputFile) {
-  // Fill in the code here
+  let input = await fs.readFile(inputFile, 'utf-8'); // Usamos el formato utf-8 para que no nos de problemas con los caracteres especiales
+  let output = addLogging(input); 
+  if (outputFile === undefined) {
+    console.log(output);
+    return;
+  }
+  await fs.writeFile(outputFile, output);
 }
 
 
@@ -24,6 +30,18 @@ export function addLogging(code) {
   return escodegen.generate(ast);
 }
 
-function addBeforeCode(node) {
- // Fill in the code here
+
+/**
+ * @desc Recibe un nodo y le añade un console.log antes de la función, incluyendo el numero de linea y
+ * 
+ * @param {*} node 
+ */
+function addBeforeCode(node, lines) {
+  const name = node.id ? node.id.name : '<anonymous function>';
+  const parameters = node.params.map(param => `\$\{${param.name}\}`);
+  const beforeCode = "console.log(`Entering " + name + "(" + parameters + ") at line " + lines + "`);";
+  const beforeNodes = espree.parse(beforeCode, {ecmaVersion:6}).body;
+  node.body.body = beforeNodes.concat(node.body.body);
 }
+
+

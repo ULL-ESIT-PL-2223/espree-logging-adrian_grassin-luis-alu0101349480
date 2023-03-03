@@ -7,7 +7,15 @@
         "funlog": "bin/log.js"
     },
     "scripts": {
-        "fill": "your scripts here"
+        "test": "mocha ./test/test.mjs",
+        "doc": "c8 npm test",
+        "exec1": "node bin/log.js ./test/data/test1.js",
+        "exec2": "node bin/log.js ./test/data/test2.js",
+        "exec3": "node bin/log.js ./test/data/test3.js",
+        "exec-out": "node bin/log.js ./test/data/test3.js -o ./bin/output.js",
+        "cov": "c8 npm run test",
+        "cov_report": "c8 --reporter=html --reporter=text --report-dir=docs mocha",
+        "jsdoc": "jsdoc2md --files src/*.js > jsdoc/README.md"
     },
     "dependencies": {
         "acorn": "^8.8.2",
