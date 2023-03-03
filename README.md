@@ -4,8 +4,25 @@
 ## Resumen de lo aprendido
 
 En esta práctica hemos empleado conceptos nuevos como integración continua, que facilitaría el desarrollo del proyecto en caso de que se quisiese escalar mediante GitHub Actions.
+```yml
+name: CI
 
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the $default-branch branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+...
+```
+<br><br>
+Por otro lado también he aprendido a publicar un paquete en npm
 
+![publishnpm](/docs/imgs/publish.png)
+<br><br>
+
+También se han usado herramientas aprendidas anteriormente como commander, testing, creación de scripts en el package.json y coverage del código.
 -------------------------
 
 ## Indicar los valores de los argumentos
@@ -84,4 +101,7 @@ Usando una variable llamada *'lines'*, podemos obtener la propiedad del número 
 
 ## Tests and Covering
 
-...
+Respecto al testing y cubrimiento, se ha implementado un test nuevo para comprobar la pero el resultado del coverage es un poco incongruente ya que el output de este aparece así:
+![coverage](/docs/imgs/coverage.png)
+
+pese a que debería pasar por las funciones que se mencionan en las lineas no recorridas para obtener el output.

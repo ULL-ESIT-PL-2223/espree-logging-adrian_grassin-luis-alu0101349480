@@ -19,6 +19,7 @@
     },
     "dependencies": {
         "acorn": "^8.8.2",
+        "c8": "^7.13.0",
         "commander": "^10.0.0",
         "escodegen": "^2.0.0",
         "espree": "^9.4.1",
